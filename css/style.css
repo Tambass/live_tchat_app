@@ -1,4 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* body {
+    background-image: linear-gradient(#fff, #000);
+    background-repeat: no-repeat;
+} */
+
 .logo {
     display: block;
     margin: auto;
+    width: 5rem;
+    height: 5rem;
+}
+
+.container {
+    max-width: 95.5rem;
+    background-color: red;
+    margin: auto;
+    height: 60vh;
+}
+
+.message {
+    background-color: grey;
+    width: 24%;
+    padding: 1rem;
+    margin: 1.7rem 1.2rem;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.left {
+    float: left;
+    clear: both;
+}
+
+.right {
+    float: right;
+    clear: both;
 }
