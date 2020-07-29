@@ -1,0 +1,22 @@
+{
+  "name": "live_tchat_app",
+  "version": "1.0.0",
+  "description": "This is a node server for our liveChat application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tambass/live_tchat_app.git"
+  },
+  "author": "Fabien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tambass/live_tchat_app/issues"
+  },
+  "homepage": "https://github.com/Tambass/live_tchat_app#readme",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  }
+}
