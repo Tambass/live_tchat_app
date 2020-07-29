@@ -15,12 +15,17 @@
     <nav>
         <img class="logo" src="chat.png" alt="chat_logo">
     </nav>
-    <h1>Bienvenue dans le LiveChat</h1>
-
-    <div class="container">
-        <!-- <div class="message left">Harry: Comment vas-tu ?</div>
-        <div class="message right">Lloyd: Bien et toi ?</div> -->
+    <h1>Bienvenue dans le LiveChat <input type="button" value="Se connecter" onclick="testit()"></h1>
+    
+    <div id="alertBox">
+        <div id="alertBox_container">
+            <div id="alertBox_titlebar"><span style="padding-left: 3px;">Entrez votre nom</span></div>
+            <div><button id="alertBox_close" type="button" onclick="alertBox_hide()">X</button></div>
+            <div id="alertBox_text"></div>
+        </div>
     </div>
+
+    <div class="container"></div>
 
     <div class="send">
         <form action="#" id="send-container">

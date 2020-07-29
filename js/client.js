@@ -21,8 +21,8 @@ const append = (message, position) => {
 };
 
 // Demande à l'utilisateur de rentrer son nom et on informe le server
-const name = prompt("Entrez votre nom pour rejoindre le t'chat");
-socket.emit("new-user-joined", name);
+// const name = prompt("Entrez votre nom pour rejoindre le t'chat");
+// socket.emit("new-user-joined", name);
 
 // Si un nouvel utilisateur rejoint le t'chat, on informe le server de son nom
 socket.on("user-joined", (name) => {
@@ -41,9 +41,57 @@ socket.on("left", (name) => {
 
 // Si le formulaire est soumi, on envoi le message au server
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const message = messageInput.value;
-    append(`Toi: ${message}`, "right");
-    socket.emit("send", message);
-    messageInput.value = "";
-  });
+  e.preventDefault();
+  const message = messageInput.value;
+  append(`Toi: ${message}`, "right");
+  socket.emit("send", message);
+  messageInput.value = "";
+});
+
+// Custom PROMPT
+
+function testit() {
+  alertBox("prompt", "");
+}
+
+function alertReturn(r) {
+  alert(r + " vous êtes connecté");
+}
+
+function alertBox(type, text) {
+  var button =
+    '<div id="alertBox_button_div" ><input id="alertBox_button" class="button" style="margin: 7px;" type="button" value="Close" onclick="alertBox_hide()"></div>';
+
+  var field = '<div><input id="ptext" class="field" type="text"></div>';
+
+  if (type == "err") {
+    document.getElementById("alertBox_text").innerHTML = text + button;
+    document.getElementById("alertBox_text").style.color = "#FF0000";
+    document.getElementById("alertBox_text").style.top = "50%";
+  } else if (type == "ok") {
+    document.getElementById("alertBox_text").innerHTML = text + button;
+    document.getElementById("alertBox_text").style.top = "50%";
+  } else if (type == "prompt") {
+    document.getElementById("alertBox_text").innerHTML = text + field + button;
+    document.getElementById("alertBox_text").style.top = "25%";
+    document.getElementById("alertBox_button").value = "OK";
+    document.getElementById("alertBox_button").onclick = function () {
+      const name = document.getElementById("ptext").value;
+      alertReturn(document.getElementById("ptext").value);
+      console.log("Le nom est : ", name);
+      socket.emit("new-user-joined", name);
+      alertBox_hide();
+    };
+    if (text) {
+      document.getElementById("ptext").value = text;
+    }
+  } else {
+    document.getElementById("alertBox_text").innerHTML = text;
+  }
+
+  document.getElementById("alertBox_container").style.visibility = "visible";
+} //end function
+
+function alertBox_hide() {
+  document.getElementById("alertBox_container").style.visibility = "hidden";
+}
