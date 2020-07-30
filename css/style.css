@@ -89,13 +89,13 @@ nav {
 .left {
     float: left;
     clear: both;
-    background-color: rgb(23, 231, 75);
+    background-color: rgb(189, 194, 190);
 }
 
 .right {
     float: right;
     clear: both;
-    background-color: rgb(23, 214, 231);
+    background-color: rgb(16, 194, 226);
 }
 
 #send-container {

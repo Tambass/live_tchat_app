@@ -31,14 +31,19 @@ function testit() {
 }
 
 function alertReturn(r) {
-  alert(r + " vous êtes connecté");
+  if (!r) {
+    alert("Pseudo obligatoire");
+    redirect("/");
+  } else {
+    alert(r + " vous êtes connecté");
+  }
 }
 
 function alertBox(type, text) {
-  var button =
+  const button =
     '<div id="alertBox_button_div" ><input id="alertBox_button" class="button" style="margin: 7px;" type="button" value="Close" onclick="alertBox_hide()"></div>';
 
-  var field = '<div><input id="ptext" class="field" type="text"></div>';
+  const field = '<div><input id="ptext" class="field" type="text"></div>';
 
   if (type == "err") {
     document.getElementById("alertBox_text").innerHTML = text + button;
@@ -73,6 +78,12 @@ function alertBox(type, text) {
 function alertBox_hide() {
   document.getElementById("alertBox_container").style.visibility = "hidden";
   document.getElementById("connect").style.visibility = "hidden";
+
+  // const newUser = document.createElement("li");
+  // const userName = document.createTextNode(`${name}`);
+  // newUser.appendChild(userName);
+  // const users = document.querySelector(".list");
+  // document.body.innerText(newUser, users);
 }
 
 // Si un nouvel utilisateur rejoint le t'chat, on informe le server de son nom
@@ -87,10 +98,7 @@ socket.on("receive", (data) => {
 
 // Si un utilisateur quitte le t'chat, on informe les autres utilisateurs
 socket.on("left", (name) => {
-  if (!name === null) {
-    append(`${name} a quitté le t'chat`, "left");
-  } else {
-  }
+  append(`${name} a quitté le t'chat`, "left");
 });
 
 // Si le formulaire est soumi, on envoi le message au server
