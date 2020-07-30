@@ -89,6 +89,12 @@ function alertBox_hide() {
 // Si un nouvel utilisateur rejoint le t'chat, on informe le server de son nom
 socket.on("user-joined", (name) => {
   append(`${name} a rejoint le t'chat`, "right");
+  // const newUser = document.createElement("li");
+  // const userName = document.createTextNode(`${name}`);
+  // newUser.appendChild(userName);
+  // const users = document.querySelector(".list");
+  // users.appendChild(userName);
+  // document.body.innerText(newUser, users);
 });
 
 // Si le server envoi un message, on le reçoi
