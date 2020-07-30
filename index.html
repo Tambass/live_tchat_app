@@ -15,8 +15,16 @@
     <nav>
         <img class="logo" src="chat.png" alt="chat_logo">
     </nav>
-    <h1>Bienvenue dans le LiveChat <input type="button" value="Se connecter" onclick="testit()"></h1>
-    
+
+    <header>
+        <h1>Bienvenue dans le LiveChat </h1>
+        <div id="connect">
+            <input type="button" value="Se connecter" onclick="testit()">
+        </div>
+        
+    </header>
+
+
     <div id="alertBox">
         <div id="alertBox_container">
             <div id="alertBox_titlebar"><span style="padding-left: 3px;">Entrez votre nom</span></div>
@@ -25,9 +33,9 @@
         </div>
     </div>
 
-    <div class="container"></div>
+    <div class="container" style="display: none;"></div>
 
-    <div class="send">
+    <div class="send" style="display: none;">
         <form action="#" id="send-container">
             <input type="text" name="messageInp" id="messageInp">
             <button class="btn" type="submit">Envoyer</button>

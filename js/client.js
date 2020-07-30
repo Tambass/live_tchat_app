@@ -57,6 +57,8 @@ function alertBox(type, text) {
       console.log("Le nom est : ", name);
       socket.emit("new-user-joined", name);
       alertBox_hide();
+      document.querySelector(".container").style.display = "block";
+      document.querySelector(".send").style.display = "block";
     };
     if (text) {
       document.getElementById("ptext").value = text;
@@ -70,6 +72,7 @@ function alertBox(type, text) {
 
 function alertBox_hide() {
   document.getElementById("alertBox_container").style.visibility = "hidden";
+  document.getElementById("connect").style.visibility = "hidden";
 }
 
 // Si un nouvel utilisateur rejoint le t'chat, on informe le server de son nom
@@ -84,16 +87,17 @@ socket.on("receive", (data) => {
 
 // Si un utilisateur quitte le t'chat, on informe les autres utilisateurs
 socket.on("left", (name) => {
-  append(`${name} a quitté le t'chat`, "left");
+  if (!name === null) {
+    append(`${name} a quitté le t'chat`, "left");
+  } else {
+  }
 });
 
 // Si le formulaire est soumi, on envoi le message au server
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const message = messageInput.value;
-  append(`Toi: ${message}`, "right");
+  append(`Moi: ${message}`, "right");
   socket.emit("send", message);
   messageInput.value = "";
 });
-
-
