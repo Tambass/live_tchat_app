@@ -21,7 +21,7 @@
         <div id="connect">
             <input type="button" value="Se connecter" onclick="testit()">
         </div>
-        
+
     </header>
 
 
@@ -33,14 +33,28 @@
         </div>
     </div>
 
-    <div class="container" style="display: none;"></div>
+    <div class="chat_block">
 
-    <div class="send" style="display: none;">
-        <form action="#" id="send-container">
-            <input type="text" name="messageInp" id="messageInp">
-            <button class="btn" type="submit">Envoyer</button>
-        </form>
+        <div class="chat_users">
+            <h2>Personnes connectées</h2>
+            <div class="users_container"></div>
+        </div>
+
+        <div class="chat_container">
+
+            <div class="container" style="display: none;"></div>
+
+            <div class="send" style="display: none;">
+                <form action="#" id="send-container">
+                    <input type="text" name="messageInp" id="messageInp">
+                    <button class="btn" type="submit">Envoyer</button>
+                </form>
+            </div>
+
+        </div>
     </div>
+
+
 
 </body>
 
